@@ -10,15 +10,12 @@ class ItemsController < ApplicationController
     @todo = Item.new
   end
 
-  def create
-    @todo = Item.new(item_params)
 
-    if @todo.save
-      redirect_to item_index_path, :notice => "New item added!"
-    else
-      render 'new'
-    end
-  end
+  def create
+		@todo = Item.create(item_params)
+		redirect_to '/items#index'
+	end
+
 
   def update
     @todo = Item.find(params[:id])
