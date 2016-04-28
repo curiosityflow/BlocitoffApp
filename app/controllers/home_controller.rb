@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
   def index
     if user_signed_in?
-      redirect_to '/lists#index'
+      redirect_to '/items#index'
     end
   end
 
