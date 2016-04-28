@@ -5,7 +5,7 @@
 <% @todos.each do |t| %>
   <p>
     <strong><<%= t.description %></strong>
-    <small><%= link_to "Mark as done", blocitoff_path(t), :method => :put %></small>
+    <small><%= link_to "Mark as done", edit_item_path(t), :method => :put %></small>
   </p>
 <% end %>
 
@@ -21,4 +21,4 @@
 
 
 
-<p><%= link_to "Add new TODO", new_blocitoff_path %></p>
+<p><%= link_to "Add new TODO", new_item_path %></p>

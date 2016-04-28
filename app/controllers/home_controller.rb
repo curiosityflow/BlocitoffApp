@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
-
+  before_action :authenticate_user!
   def index
     if user_signed_in?
-      redirect_to 'blocitoff#index'
+      redirect_to '/lists#index'
     end
   end
 

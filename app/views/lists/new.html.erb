@@ -1,6 +1,6 @@
 <h1>Add new TO DO</h1>
 
-<% form_for @todo, :url => blocitoff_path(@todo) do |f| %>
+<% form_for @todo, :url => new_item_path(@todo) do |f| %>
   <%= f.label :description %>: <%= f.text_field :description %>
   <%= f.hidden_field :done, :value => false %>
   <%= f.submit "Add new TODO" %>
