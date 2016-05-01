@@ -16,13 +16,16 @@ class ItemsController < ApplicationController
 		redirect_to '/items#index'
 	end
 
+  def edit
+    @todo = Item.find(params[:id])
+  end
 
   def update
     @todo = Item.find(params[:id])
-    if @todo.update_attribute(:done, true)
-      redirect_to item_index_path, :notice => "Item marked as done!"
+    if @todo.update(item_params)
+      redirect_to items_url, :notice => "Item Updated"
     else
-      redirect_to item_index_path, :notice => "Unable to be marked as done!"
+      redirect_to items_url, :notice => "Could not update Item"
     end
   end
 
@@ -30,7 +33,7 @@ class ItemsController < ApplicationController
     @todo = Item.find(params[:id])
     @todo.destroy
 
-    redirect_to item_index_path, :notice => "Item deleted!"
+    redirect_to items_url, :notice => "Item deleted!"
   end
 
   private

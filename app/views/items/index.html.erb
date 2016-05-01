@@ -4,8 +4,9 @@
 
 <% @todos.each do |t| %>
   <p>
-    <strong><<%= t.description %></strong>
-    <small><%= link_to "Mark as done", edit_item_path(t), :method => :put %></small>
+    <strong><%= t.description %></strong>
+    <small><%= link_to 'Edit', edit_item_path(t) %></small>
+    <small><%= link_to "Mark as done", item_path(id: t.id, item: {done: true}), action: 'update', method: 'put' %></small>
   </p>
 <% end %>
 
@@ -14,7 +15,7 @@
 
 <% @todone.each do |t| %>
   <p>
-    <strong><<%= t.description %></strong>
+    <strong><%= t.description %></strong>
     <small><%= link_to "Remove", t, :confirm => "It is ok to remove item from list?", :method => :delete %></small>
   </p>
 <% end %>
