@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   def index
     @todos = Item.where(done: false)
     @todone = Item.where(done: true)
+    @user = current_user
   end
 
   def new
