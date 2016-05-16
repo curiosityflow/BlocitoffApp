@@ -1,0 +1,7 @@
+<p>
+  <strong><%= todo.description %></strong>
+  <%= distance_of_time_in_words(Time.now, todo.created_at + 7.days) %>
+  to go...
+  <small><%= link_to 'Edit', edit_item_path(todo) %></small>
+  <small><%= link_to "Mark as done", item_path(id: todo.id, item: {done: true}), action: 'update', method: 'put', class: 'glyphicon glyphicon-ok' %></small>
+</p>

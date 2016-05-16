@@ -2,14 +2,7 @@
 <%= link_to "Back to My Profile", user_path(@user) %></br>
 <h2>TO DO:</h2>
 
-<% @todos.each do |t| %>
-  <p>
-    <strong><%= t.description %></strong>
-    <small><%= link_to 'Edit', edit_item_path(t) %></small>
-    <small><%= link_to "Mark as done", item_path(id: t.id, item: {done: true}), action: 'update', method: 'put' %></small>
-  </p>
-<% end %>
-
+<%= render partial: "todo", collection: @todos %>
 
 <h2>DONE TODOS:</h2>
 
